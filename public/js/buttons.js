@@ -1,3 +1,5 @@
+
+
 $('#hotel_button').on('click', function(evt){
   var $currentHotelSelected = ($( '#hotel-choices option:selected').text())
   console.log($currentHotelSelected);
@@ -6,7 +8,7 @@ $('#hotel_button').on('click', function(evt){
 
     if (hotels[hotelObj].name === $currentHotelSelected){
       var hotelLocation = (hotels[hotelObj].place.location);
-      drawMarker('hotel', hotelLocation);
+      console.log('Hello: ', drawMarker('hotel', hotelLocation));
     }
   }
 })
