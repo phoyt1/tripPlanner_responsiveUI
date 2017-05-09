@@ -3,21 +3,39 @@ $('#hotel_button').on('click', function(evt){
   console.log($currentHotelSelected);
   $('#hotelSelection').replaceWith('<span class="title" id="hotelSelection">' + $currentHotelSelected + '</span>');
   for (var hotelObj in hotels){
-    // console.log(hotelObj);
+
     if (hotels[hotelObj].name === $currentHotelSelected){
       var hotelLocation = (hotels[hotelObj].place.location);
       drawMarker('hotel', hotelLocation);
-      // initializeMap.drawMarker('hotel', hotelLocation);
     }
   }
-  // console.log(.place.location);
 })
 
 
+$('#restaurants_button').on('click', function(evt){
+  var $currentRestaurantSelected = ($( '#restaurant-choices option:selected').text())
+  console.log($currentRestaurantSelected);
+  $('#restaurantSelection').append('<span class="title" id="restaurantSelection">' + $currentRestaurantSelected + '</span><button class="btn btn-xs btn-danger remove btn-circle">x</button><br />');
+  for (var restaurantObj in restaurants){
 
+    if (restaurants[restaurantObj].name === $currentRestaurantSelected){
+      var restaurantLocation = (restaurants[restaurantObj].place.location);
+      drawMarker('restaurant', restaurantLocation);
+    }
+  }
+})
 
-// $( "div.second" ).replaceWith( "<h2>New heading</h2>" );
+$('#activities_button').on('click', function(evt){
+  var $currentActivitySelected = ($( '#activity-choices option:selected').text())
+  console.log($currentActivitySelected);
+  $('#activitySelection').append('<span class="title" id="activitySelection">' + $currentActivitySelected + '</span><button class="btn btn-xs btn-danger remove btn-circle">x</button><br />');
+  for (var activityObj in activities){
 
-//find itinerary class
+    if (activities[activityObj].name === $currentActivitySelected){
+      var activityLocation = (activities[activityObj].place.location);
+      drawMarker('activity', activityLocation);
 
-// $('#hotelSelection') = $currentHotelSelected;
+    }
+  }
+
+})
