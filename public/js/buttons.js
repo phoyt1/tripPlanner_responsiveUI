@@ -25,6 +25,7 @@ $('#restaurants_button').on('click', function(evt){
     if (restaurants[restaurantObj].name === $currentRestaurantSelected){
       var restaurantLocation = (restaurants[restaurantObj].place.location);
       restaurantMarkers.push(drawMarker('restaurant', restaurantLocation));
+      console.log(restaurantMarkers);
     }
   }
 })

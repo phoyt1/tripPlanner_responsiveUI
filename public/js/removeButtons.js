@@ -18,14 +18,14 @@
 $('.deleteHotel').on('click', function(evt){
 
   $(this).prev()[0].textContent = '';
-  restaurantMarkers[0].setMap(null);
+  hotelMarkers[0].setMap(null);
 
 });
 
 
-$('.deleteRestaurant').on('click', function(evt){
-
+$('#restaurantSelection').on('click', '.deleteRestaurant',function(evt){
+  console.log(restaurants);
   $(this).prev()[0].textContent = '';
-  activitiesMarkers[0].setMap(null);
+  restaurantMarkers[0].setMap(null);
 
 });
