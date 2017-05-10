@@ -1,4 +1,6 @@
-
+var hotelMarkers = [];
+var restaurantMarkers = [];
+var activitiesMarkers = [];
 
 $('#hotel_button').on('click', function(evt){
   var $currentHotelSelected = ($( '#hotel-choices option:selected').text())
@@ -8,7 +10,7 @@ $('#hotel_button').on('click', function(evt){
 
     if (hotels[hotelObj].name === $currentHotelSelected){
       var hotelLocation = (hotels[hotelObj].place.location);
-      console.log('Hello: ', drawMarker('hotel', hotelLocation));
+      hotelMarkers.push(drawMarker('hotel', hotelLocation));
     }
   }
 })
@@ -17,12 +19,12 @@ $('#hotel_button').on('click', function(evt){
 $('#restaurants_button').on('click', function(evt){
   var $currentRestaurantSelected = ($( '#restaurant-choices option:selected').text())
   console.log($currentRestaurantSelected);
-  $('#restaurantSelection').append('<span class="title" id="restaurantSelection">' + $currentRestaurantSelected + '</span><button class="btn btn-xs btn-danger remove btn-circle">x</button><br />');
+  $('#restaurantSelection').append('<span class="title" id="restaurantSelection">' + $currentRestaurantSelected + '</span><button class="btn btn-xs btn-danger remove btn-circle deleteRestaurant">x</button><br />');
   for (var restaurantObj in restaurants){
 
     if (restaurants[restaurantObj].name === $currentRestaurantSelected){
       var restaurantLocation = (restaurants[restaurantObj].place.location);
-      drawMarker('restaurant', restaurantLocation);
+      restaurantMarkers.push(drawMarker('restaurant', restaurantLocation));
     }
   }
 })
@@ -30,7 +32,7 @@ $('#restaurants_button').on('click', function(evt){
 $('#activities_button').on('click', function(evt){
   var $currentActivitySelected = ($( '#activity-choices option:selected').text())
   console.log($currentActivitySelected);
-  $('#activitySelection').append('<span class="title" id="activitySelection">' + $currentActivitySelected + '</span><button class="btn btn-xs btn-danger remove btn-circle">x</button><br />');
+  $('#activitySelection').append('<span class="title" id="activitySelection">' + $currentActivitySelected + '</span><button class="btn btn-xs btn-danger remove btn-circle deleteActivity">x</button><br />');
   for (var activityObj in activities){
 
     if (activities[activityObj].name === $currentActivitySelected){

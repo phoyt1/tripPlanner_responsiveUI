@@ -64,4 +64,6 @@ function drawMarker (type, coords) {
     position: latLng
   });
   marker.setMap(currentMap);
+  console.log(marker);
+  return marker;
 }
